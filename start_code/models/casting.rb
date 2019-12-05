@@ -13,4 +13,25 @@ class Casting
       end
 
 
+      def self.delete_all()
+        sql = "DELETE FROM castings"
+        SqlRunner.run(sql)
+      end
+
+      def save()
+        sql = "INSERT into castings
+        ( movie_id,
+          star_id,
+          fee
+          )
+          VALUES (
+            $1, $2, $3
+            ) RETURNING id"
+        values = [@movie_id, @star_id, @fee]
+        # Getting the ID Key
+        casting = SqlRunner.run(sql, values).first
+        @id = casting['id'].to_i
+      end
+
+
 end
