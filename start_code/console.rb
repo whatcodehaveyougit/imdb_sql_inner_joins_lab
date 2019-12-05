@@ -15,6 +15,7 @@ movie2 = Movie.new({ 'title' => 'Batman', 'genre' => 'action'} )
 movie2.save()
 movie3 = Movie.new({ 'title' => 'Joker', 'genre' => 'thriller'} )
 movie3.save()
+movie3.update()
 
 star1 = Star.new({ 'first_name' => 'Christopher', 'last_name' => 'Reeve'} )
 star1.save()
